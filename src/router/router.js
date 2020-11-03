@@ -12,6 +12,26 @@ const router= new Router({
             component:()=>import('@/components/LoginPage')
         },
         {
+            name:'adminUsers',
+            path:'/admin/users',
+            component:()=>import('@/components/admin/AdminUsers')
+        },
+        {
+            name:'adminMeetings',
+            path:'/admin/meetings',
+            component:()=>import('@/components/admin/AdminMeetings')
+        },
+        {
+            name:'adminTeams',
+            path:'admin/teams',
+            component:()=>import('@/components/admin/AdminTeams')
+        },
+        {
+            name:'admin',
+            path:'/admin',
+            component:()=>import('@/components/admin/AdminNavbar'),
+        },
+        {
             name:'calendar',
             path:'/calendar',
             component:()=>import('@/components/Calendar')

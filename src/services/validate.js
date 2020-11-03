@@ -7,6 +7,7 @@ export const generateToken=(email,password)=>{
     }).then(response=>{
         localStorage.setItem('token',response.data.token)
         localStorage.setItem('user',response.data.name)
+        return response
     })
     .catch((error)=>{
         throw error.response.data.message

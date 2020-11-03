@@ -47,7 +47,7 @@ export default {
         members:emailString
       }
       addNewTeam(team).then(()=>{
-        Vue.$toast.success('Meeting added successfully !');
+        Vue.$toast.success('Team added successfully !');
       })
     }
   }

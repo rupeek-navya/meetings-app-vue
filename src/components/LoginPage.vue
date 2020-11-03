@@ -39,8 +39,8 @@
         </div>
     </div>
 </template>
-
 <script>
+
 import {generateToken,onRegister} from '../services/validate'
 
 export default {
@@ -57,12 +57,17 @@ export default {
                 const email=document.querySelectorAll('#email')[0].value;
                 const password=document.querySelectorAll('#password')[0].value;
                 generateToken(email,password)
-                .then(()=>{
-                    this.errorM=''
-                    this.errorN=''
-                    if(localStorage.getItem('token')){
-                        this.$router.push('/calendar')
+                .then((res)=>{
+                    if(res.data.isAdmin){
+                        this.$router.push('/admin')
                     }
+                    else{
+                        this.errorM=''
+                        this.errorN=''
+                        if(localStorage.getItem('token')){
+                            this.$router.push('/calendar')
+                        }
+                    } 
                 }).catch(err=>{
                     this.errorM=err
                     if(err==='password mismatch'){
